@@ -38,10 +38,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # MEUS APPS
+    'area_de_formacao',
     'banca',
     'disciplina',
     'cargo',
-    'assunto'
+    'assunto',
+    'questao',
+    'instituicao',
+
+    'django_summernote',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +130,35 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,"static"),
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+MEDIA_URL = '/media/'
+
+from django.contrib.messages import constants
+
+MESSAGE_TAGS ={
+    constants.DEBUG: 'debug',
+    constants.INFO: 'info',
+    constants.SUCCESS: 'success',
+    constants.WARNING: 'warning',
+    constants.ERROR: 'error',
+}
+
+
+SITE_ID = 1
+CKEDITOR_JQUERY_URL ='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAG_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default':{
+        'toolbar': 'full',
+        'width': 1000,
+        'height': 400,
+    }
+}
